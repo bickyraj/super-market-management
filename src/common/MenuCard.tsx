@@ -1,0 +1,27 @@
+import React from "react";
+
+interface IProps {
+    title: string;
+    icon: string;
+}
+
+const MenuCard: React.FC<IProps> = (props: IProps) => {
+    return (
+        <>
+            <div
+                className="group bg-white rounded-xl drop-shadow-xl cursor-pointer hover:bg-amber-400 p-4 h-40 w-50 flex items-center justify-center text-white">
+                <div className="flex flex-col items-center">
+                    <div className="text-sm font-semibold pb-2 group-hover:text-amber-50 uppercase text-gray-950">
+                        {props.title}
+                    </div>
+                    <img
+                        alt=""
+                        src={props.icon}
+                        className="h-20 w-auto"
+                    />
+                </div>
+            </div>
+        </>
+    );
+}
+export default MenuCard;

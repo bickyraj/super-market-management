@@ -3,6 +3,10 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 import fastFood from '../assets/fast-food.png';
 import liquor from '../assets/liquor.png';
 import softDrink from '../assets/drink.png';
+import logo from '../assets/shopping.png';
+import grocery from '../assets/grocery.png';
+import fruits from '../assets/fruits.png';
+import vegetable from '../assets/vegetable.png';
 import {
     ArrowPathIcon, Bars3Icon,
     ChartPieIcon,
@@ -20,6 +24,7 @@ import {
     PopoverGroup,
     PopoverPanel
 } from "@headlessui/react";
+import MenuCard from "../common/MenuCard.tsx";
 
 const products = [
     { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -43,11 +48,14 @@ const Dashboard = () => {
                     <div className="flex lg:flex-1">
                         <a href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
-                            <img
-                                alt=""
-                                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-                                className="h-8 w-auto"
-                            />
+                            <div className="flex gap-2 align-middle">
+                                <img
+                                    alt=""
+                                    src={logo}
+                                    className="h-8 w-auto"
+                                />
+                                <div className="font-bold text-gray-800 text-2xl">Super Manager</div>
+                            </div>
                         </a>
                     </div>
                     <div className="flex lg:hidden">
@@ -201,44 +209,14 @@ const Dashboard = () => {
                 </Dialog>
             </header>
             <main>
-                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                <div className="mx-auto my-20 max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-3 gap-10">
-                        <div className="bg-white p-4 h-40 w-50 flex items-center justify-center text-white">
-                            <div className="flex flex-col items-center">
-                                <div className="text-sm font-semibold pb-2 uppercase text-gray-950">
-                                    Meals
-                                </div>
-                                <img
-                                    alt=""
-                                    src={fastFood}
-                                    className="h-20 w-auto"
-                                />
-                            </div>
-                        </div>
-                        <div className="bg-white p-4 h-40 w-50 flex items-center justify-center text-white">
-                            <div className="flex flex-col items-center">
-                                <div className="text-sm font-semibold pb-2 uppercase text-gray-950">
-                                    Soft Drinks
-                                </div>
-                                <img
-                                    alt=""
-                                    src={softDrink}
-                                    className="h-20 w-auto"
-                                />
-                            </div>
-                        </div>
-                        <div className="bg-white p-4 h-40 w-50 flex items-center justify-center text-white">
-                            <div className="flex flex-col items-center">
-                                <div className="text-sm font-semibold pb-2 uppercase text-gray-950">
-                                    Hard Drinks
-                                </div>
-                                <img
-                                    alt=""
-                                    src={liquor}
-                                    className="h-20 w-auto"
-                                />
-                            </div>
-                        </div>
+                        <MenuCard icon={fruits} title="Fruits"/>
+                        <MenuCard icon={grocery} title="Grocery"/>
+                        <MenuCard icon={liquor} title="Hard Drinks"/>
+                        <MenuCard icon={fastFood} title="meals"/>
+                        <MenuCard icon={softDrink} title="Soft Drinks"/>
+                        <MenuCard icon={vegetable} title="Vegetables"/>
                     </div>
                 </div>
             </main>
