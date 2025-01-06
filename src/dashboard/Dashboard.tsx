@@ -213,7 +213,7 @@ const Dashboard = () => {
                     <div className="grid grid-cols-3 gap-10">
                         <MenuCard icon={fruits} title="Fruits"/>
                         <MenuCard icon={grocery} title="Grocery"/>
-                        <MenuCard icon={liquor} title="Hard Drinks"/>
+                        <MenuCard icon={liquor} title="Liquor"/>
                         <MenuCard icon={fastFood} title="meals"/>
                         <MenuCard icon={softDrink} title="Soft Drinks"/>
                         <MenuCard icon={vegetable} title="Vegetables"/>
