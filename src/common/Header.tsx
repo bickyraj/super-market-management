@@ -18,13 +18,14 @@ import {
     PopoverGroup,
     PopoverPanel
 } from "@headlessui/react";
-import {ChevronDownIcon, PhoneIcon, PlayCircleIcon} from "@heroicons/react/20/solid";
+import {ChevronDownIcon, HomeIcon, PhoneIcon, PlayCircleIcon} from "@heroicons/react/20/solid";
 import {useState} from "react";
+import {Link, useNavigate} from "react-router-dom";
 
 const products = [
-    { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-    { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-    { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
+    { name: 'Add new product', description: 'Get a better understanding of your traffic', href: '/product/add', icon: ChartPieIcon },
+    { name: 'Add new Category', description: 'Speak directly to your customers', href: '/product-category/add', icon: CursorArrowRaysIcon },
+    { name: 'Add new Unit', description: 'Your customers’ data will be safe and secure', href: '/unit/add', icon: FingerPrintIcon },
     { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
     { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
@@ -34,14 +35,18 @@ const callsToAction = [
 ]
 
 const Header: React.FC = () => {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const navigate = useNavigate();
+    const logoHandleClick = () => {
+        navigate(`/dashboard`);
+    }
     return (
         <header className="bg-white">
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
                 <div className="flex lg:flex-1">
                     <a href="#" className="-m-1.5 p-1.5">
-                        <span className="sr-only">Your Company</span>
-                        <div className="flex gap-2 align-middle">
+                        <span className="sr-only">Super Manager</span>
+                        <div onClick={() => logoHandleClick()} className="flex gap-2 align-middle">
                             <img
                                 alt=""
                                 src={logo}
@@ -62,6 +67,12 @@ const Header: React.FC = () => {
                     </button>
                 </div>
                 <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+                    <Link to="/dashboard" className="text-sm/6 flex items-center justify-center gap-1 font-semibold text-indigo-700">
+                        <HomeIcon className="h-3.5 w-auto" />
+                        <span>
+                            Home
+                        </span>
+                    </Link>
                     <Popover className="relative">
                         <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
                             Product
