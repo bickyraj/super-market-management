@@ -21,7 +21,7 @@ const OrderItemCard: React.FC<IProps> = (props: IProps) => {
         <>
             <div
                 onClick={() => handleClick()}
-                className="group bg-white rounded-md drop-shadow-xl cursor-pointer hover:bg-amber-400 p-4 h-50 w-50 flex items-center justify-center text-white">
+                className="bg-white rounded-md drop-shadow-xl px-4 pb-2 pt-2 cursor-pointer h-50 w-50 flex items-center justify-center text-white">
                 <div className="grid items-center">
                     <div className="text-sm text-left font-semibold group-hover:text-amber-900 uppercase text-gray-700">
                         {props.title}
@@ -33,11 +33,21 @@ const OrderItemCard: React.FC<IProps> = (props: IProps) => {
                         <div className="text-sm text-gray-500 text-right group-hover:text-amber-900 font-medium">€ 2.5
                         </div>
                     </div>
-                    <img
-                        alt=""
-                        src={props.image}
-                        className="h-45 w-auto rounded-md"
-                    />
+                    <div className="grid grid-cols-5 mb-2 items-center">
+                        <div className="col-span-4">
+                            <img
+                                alt=""
+                                src={props.image}
+                                className="h-52 w-auto rounded-md"
+                            />
+                        </div>
+                        <div className="col-span-1 pl-3">
+                            <div className="flex flex-col items-center justify-center gap-4">
+                                <button className="hover:bg-amber-400 hover:text-amber-900 font-medium rounded-full h-12 w-12 bg-amber-300 hover:drop-shadow-2xl drop-shadow-xl text-gray-800">+</button>
+                                <button className="hover:bg-red-500 hover:text-white font-medium rounded-full h-12 w-12 bg-red-100 hover:drop-shadow-2xl drop-shadow-xl text-gray-800">-</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
