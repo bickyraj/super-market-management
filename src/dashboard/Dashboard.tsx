@@ -4,12 +4,14 @@ import softDrink from '../assets/drink.png';
 import grocery from '../assets/grocery.png';
 import fruits from '../assets/fruits.png';
 import vegetable from '../assets/vegetable.png';
+import order from '../assets/order.png';
 import MenuCard from "../common/MenuCard.tsx";
 
 const Dashboard = () => {
     return (
         <>
             <div className="my-20 grid grid-cols-3 gap-10">
+                <MenuCard link="/order/food" icon={order} title=""/>
                 <MenuCard icon={fruits} title="Fruits"/>
                 <MenuCard icon={grocery} title="Grocery"/>
                 <MenuCard icon={liquor} title="Liquor"/>

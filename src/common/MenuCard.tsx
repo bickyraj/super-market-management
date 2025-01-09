@@ -4,13 +4,18 @@ import {useNavigate} from "react-router-dom";
 interface IProps {
     title: string;
     icon: string;
+    link?: string;
 }
 
 const MenuCard: React.FC<IProps> = (props: IProps) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`/menu/details`);  // Navigate to the detail page with an ID
+        if (props.link) {
+            navigate(`${props.link}`);
+        } else {
+            navigate(`/menu/details`);  // Navigate to the detail page with an ID
+        }
     };
     return (
         <>
