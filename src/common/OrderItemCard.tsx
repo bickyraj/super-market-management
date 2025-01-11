@@ -26,8 +26,8 @@ const OrderItemCard: React.FC<IProps> = (props: IProps) => {
                     <div className="text-sm text-left font-semibold group-hover:text-amber-900 uppercase text-gray-700">
                         {props.title}
                     </div>
-                    <div className="grid grid-cols-2 mb-2 items-center">
-                        <div className="text-xs text-gray-500 text-left group-hover:text-gray-900 font-medium">Salmon,
+                    <div className="grid grid-cols-3 mb-2 items-center">
+                        <div className="col-span-2 text-xs text-gray-500 text-left group-hover:text-gray-900">Salmon,
                             riz, carrot, avocado
                         </div>
                         <div className="text-sm text-gray-500 text-right group-hover:text-amber-900 font-medium">€ 2.5
@@ -42,17 +42,9 @@ const OrderItemCard: React.FC<IProps> = (props: IProps) => {
                             />
                         </div>
                         <div className="col-span-1 pl-3">
-                            {/*<div className="grid grid-rows-2 items-center justify-center gap-4">*/}
-                            {/*    <button*/}
-                            {/*        className="h-full w-full hover:bg-amber-400 hover:text-amber-900 font-medium bg-amber-300 hover:drop-shadow-2xl drop-shadow-xl text-gray-800">+*/}
-                            {/*    </button>*/}
-                            {/*    <button*/}
-                            {/*        className="h-full w-full hover:bg-red-500 hover:text-white font-medium bg-red-100 hover:drop-shadow-2xl drop-shadow-xl text-gray-800">-*/}
-                            {/*    </button>*/}
-                            {/*</div>*/}
-                            <div className="flex flex-col items-center justify-center gap-4">
-                                <button className="hover:bg-amber-400 hover:text-amber-900 font-medium h-12 w-12 rounded-full bg-amber-300 hover:drop-shadow-2xl drop-shadow-xl text-gray-800">+</button>
-                                <button className="hover:bg-red-500 hover:text-white font-medium h-12 w-12 bg-red-100 rounded-full hover:drop-shadow-2xl drop-shadow-xl text-gray-800">-</button>
+                            <div className="flex flex-col items-center justify-center gap-3">
+                                <button className="hover:bg-amber-400 hover:text-amber-900 font-medium h-32 w-12 rounded-md bg-amber-300 hover:drop-shadow-2xl drop-shadow-xl text-gray-800">+</button>
+                                <button className="hover:bg-red-500 hover:text-white font-medium h-16 w-12 bg-red-100 rounded-md hover:drop-shadow-2xl drop-shadow-xl text-gray-800">-</button>
                             </div>
                         </div>
                     </div>
