@@ -42,9 +42,17 @@ const OrderItemCard: React.FC<IProps> = (props: IProps) => {
                             />
                         </div>
                         <div className="col-span-1 pl-3">
+                            {/*<div className="grid grid-rows-2 items-center justify-center gap-4">*/}
+                            {/*    <button*/}
+                            {/*        className="h-full w-full hover:bg-amber-400 hover:text-amber-900 font-medium bg-amber-300 hover:drop-shadow-2xl drop-shadow-xl text-gray-800">+*/}
+                            {/*    </button>*/}
+                            {/*    <button*/}
+                            {/*        className="h-full w-full hover:bg-red-500 hover:text-white font-medium bg-red-100 hover:drop-shadow-2xl drop-shadow-xl text-gray-800">-*/}
+                            {/*    </button>*/}
+                            {/*</div>*/}
                             <div className="flex flex-col items-center justify-center gap-4">
-                                <button className="hover:bg-amber-400 hover:text-amber-900 font-medium rounded-full h-12 w-12 bg-amber-300 hover:drop-shadow-2xl drop-shadow-xl text-gray-800">+</button>
-                                <button className="hover:bg-red-500 hover:text-white font-medium rounded-full h-12 w-12 bg-red-100 hover:drop-shadow-2xl drop-shadow-xl text-gray-800">-</button>
+                                <button className="hover:bg-amber-400 hover:text-amber-900 font-medium h-12 w-12 rounded-full bg-amber-300 hover:drop-shadow-2xl drop-shadow-xl text-gray-800">+</button>
+                                <button className="hover:bg-red-500 hover:text-white font-medium h-12 w-12 bg-red-100 rounded-full hover:drop-shadow-2xl drop-shadow-xl text-gray-800">-</button>
                             </div>
                         </div>
                     </div>
