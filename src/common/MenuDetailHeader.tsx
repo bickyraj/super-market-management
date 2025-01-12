@@ -5,11 +5,13 @@ import liquor from "../assets/liquor.png";
 import meals from "../assets/fast-food.png";
 import softdrinks from "../assets/drink.png";
 import vegetable from "../assets/vegetable.png";
+import allCategory from "../assets/all-category.png";
 import React from "react";
 
 const MenuDetailHeader: React.FC = () => {
     return (
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-row gap-3">
+                <CategoryMenu icon={allCategory} title="All"/>
                 <CategoryMenu icon={fruits} title="fruits"/>
                 <CategoryMenu icon={grocery} title="grocery"/>
                 <CategoryMenu icon={liquor} title="liquor"/>

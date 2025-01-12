@@ -9,7 +9,7 @@ import SideBarOrder from "./SideBarOrder.tsx";
 const OrderFood:React.FC = () => {
     return (
         <>
-            <div className="grid grid-cols-7">
+            <div className="grid grid-cols-8">
                 <div className="col-span-6">
                     <div className="py-6 bg-gray-light fixed z-[1] w-full">
                         <div className="flex gap-7">
