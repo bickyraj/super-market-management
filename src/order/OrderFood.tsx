@@ -73,8 +73,8 @@ const OrderFood:React.FC = () => {
 
     return (
         <>
-            <div className="grid grid-cols-8">
-                <div className="col-span-6">
+            <div className="grid grid-cols-8 lg:grid-cols-8 md:grid-cols-10">
+                <div className="col-span-6 lg:col-span-6 md:col-span-7">
                     <div className="py-6 bg-gray-light fixed z-[1] w-full">
                         <div className="flex gap-7">
                             <div className="">

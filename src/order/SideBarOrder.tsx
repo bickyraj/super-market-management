@@ -15,7 +15,7 @@ interface IProps {
 const SideBarOrder: React.FC<IProps> = (props: IProps) => {
     return (
         <>
-            <div className="bg-white w-[430px] h-full fixed z-20 right-0 top-20">
+            <div className="bg-white w-[430px] lg:w-[430px] md:w-[390px] h-full fixed z-20 right-0 top-20">
                 <h1 className="bg-amber-400 text-amber-900 font-semibold px-4 py-3">Order</h1>
                 <div className="py-7 px-4">
                     <table className="min-w-full text-left border-spacing-4">
