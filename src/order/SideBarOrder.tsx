@@ -1,7 +1,18 @@
 import React from "react";
-import food10 from "../assets/food/food10.jpg";
 
-const SideBarOrder: React.FC = () => {
+export interface IOrder {
+    id: number;
+    name: string;
+    price: number;
+    quantity: number;
+    image: string;
+}
+
+interface IProps {
+    orders: IOrder[];
+}
+
+const SideBarOrder: React.FC<IProps> = (props: IProps) => {
     return (
         <>
             <div className="bg-white w-[430px] h-full fixed z-20 right-0 top-20">
@@ -28,51 +39,39 @@ const SideBarOrder: React.FC = () => {
                         </tr>
                         </thead>
                         <tbody>
-                            <tr className="border-b border-gray-200 text-gray-900">
-                                <td className="pt-2 pb-2 text-sm/6">1</td>
-                                <td className="pt-2 pb-2">
-                                    <div className="flex min-w-0 gap-x-1">
-                                        <img alt="" src={food10}
-                                             className="size-7 rounded-md flex-none bg-gray-50"/>
-                                        <div className="min-w-0 flex justify-center items-center">
-                                            <p className="text-xs leading-[1.2] font-medium text-gray-900">Ramen</p>
+                            {props.orders.length > 0 ? (props.orders.map((order: IOrder) => (
+                                <tr key={order.id} className="border-b border-gray-200 text-gray-900">
+                                    <td className="pt-2 pb-2 text-sm/6">1</td>
+                                    <td className="pt-2 pb-2">
+                                        <div className="flex min-w-0 gap-x-1">
+                                            <img alt="" src={order.image}
+                                                 className="size-7 rounded-md flex-none bg-gray-50"/>
+                                            <div className="min-w-0 flex justify-center items-center">
+                                                <p className="text-xs leading-[1.2] font-medium text-gray-900 capitalize">{order.name}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td className="pt-2 pb-2">
-                                    <div className="flex text-sm/6 font-medium text-gray-900 justify-end">x 5</div>
-                                </td>
-                                <td className="pt-2 pb-2">
-                                    <p className="text-sm/6 font-medium text-gray-900 text-right">70.99</p>
-                                </td>
-                                <td className="pt-2 pb-2">
-                                    <p className="text-sm/6 font-medium text-gray-900 text-right">800.99</p>
-                                </td>
-                            </tr>
-                            <tr className="border-b border-gray-200 text-gray-900">
-                                <td className="pt-2 pb-2 text-sm/6">2</td>
-                                <td className="pt-2 pb-2">
-                                    <div className="flex min-w-0 gap-x-1">
-                                        <img alt="" src={food10}
-                                             className="size-7 flex-none rounded-md bg-gray-50"/>
-                                        <div className="min-w-0 flex justify-center items-center">
-                                            <p className="text-xs leading-[1.2] font-medium text-gray-900">Sushi Saumon</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td className="pt-2 pb-2">
-                                    <div className="flex text-sm/6 font-medium text-gray-900 justify-end">x 5</div>
-                                </td>
-                                <td className="pt-2 pb-2">
-                                    <p className="text-sm/6 font-medium text-gray-900 text-right">70.99</p>
-                                </td>
-                                <td className="pt-2 pb-2"><p
-                                    className="text-sm/6 font-medium text-gray-900 text-right">50.99</p></td>
-                            </tr>
+                                    </td>
+                                    <td className="pt-2 pb-2">
+                                        <div className="flex text-sm/6 font-medium text-gray-900 justify-end">x {order.quantity}</div>
+                                    </td>
+                                    <td className="pt-2 pb-2">
+                                        <p className="text-sm/6 font-medium text-gray-900 text-right">{order.price}</p>
+                                    </td>
+                                    <td className="pt-2 pb-2">
+                                        <p className="text-sm/6 font-medium text-gray-900 text-right">{order.price * order.quantity}</p>
+                                    </td>
+                                </tr>
+                            ))) : (
+                                <tr className="border-b border-gray-200 text-gray-900">
+                                    <td colSpan={5} className="pt-2 pb-2 text-sm">No items in order.</td>
+                                </tr>
+                            )}
                             <tr>
                                 <td></td>
-                                <td colSpan={3} className="pt-2 pb-2 text-sm/6 font-semibold col-span-4">Total</td>
-                                <td className="pt-2 pb-2 text-sm/6 col-span-1 font-semibold text-right">500</td>
+                                <td colSpan={3} className="pt-2 pb-2 text-sm/6 font-semibold col-span-4">Total Amount</td>
+                                <td className="pt-2 pb-2 text-sm/6 col-span-1 font-semibold text-right">
+                                    €{props.orders.reduce((acc, item) => (acc + item.quantity * item.price), 0)}
+                                </td>
                             </tr>
                         </tbody>
                     </table>

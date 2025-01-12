@@ -1,12 +1,62 @@
 import MenuDetailHeader from "../common/MenuDetailHeader.tsx";
-import React from "react";
+import React, {useState} from "react";
 import OrderItemCard from "../common/OrderItemCard.tsx";
 import food2 from "../assets/food/food2.jpg";
 import food10 from "../assets/food/food10.jpg";
-import ramen1 from "../assets/food/ramen1.jpg";
-import ramen2 from "../assets/food/ramen2.jpg";
-import SideBarOrder from "./SideBarOrder.tsx";
+import SideBarOrder, {IOrder} from "./SideBarOrder.tsx";
+
+interface ICardItems {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+}
+
+const foods: ICardItems[] = [
+    {
+        id: 1,
+        name: "sushi",
+        price: 20,
+        image: food2
+    },
+    {
+        id: 2,
+        name: "ramen",
+        price: 15,
+        image: food10
+    },
+    {
+        id: 3,
+        name: "new ramen",
+        price: 25,
+        image: food10
+    }
+]
 const OrderFood:React.FC = () => {
+    const [orders, setOrders] = useState<IOrder[]>([]);
+    const addToOrderList = (food: ICardItems) => {
+        setOrders((prevOrders: IOrder[]) => {
+            const existingOrder = prevOrders.find((order) => order.id === food.id);
+            if (existingOrder) {
+                return prevOrders.map((order) =>
+                    order.id === food.id
+                        ? { ...order, quantity: order.quantity + 1 }
+                        : order
+                );
+            } else {
+                const newOrder: IOrder = {
+                    id: food.id,
+                    name: food.name,
+                    price: food.price,
+                    quantity: 1,
+                    image: food.image,
+
+                }
+                return [...prevOrders, newOrder];
+            }
+        });
+    }
+
     return (
         <>
             <div className="grid grid-cols-8">
@@ -17,9 +67,9 @@ const OrderFood:React.FC = () => {
                                 <a href="/dashboard"
                                    className="flex flex-row justify-center gap-2 items-center bg-indigo-600 text-white font-bold py-2 px-4 rounded hover:bg-amber-400">
                                     <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                                              stroke="currentColor" className="size-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                            <path strokeLinecap="round" strokeLinejoin="round"
                                                   d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"/>
                                         </svg>
                                     </div>
@@ -31,29 +81,18 @@ const OrderFood:React.FC = () => {
                     </div>
                     <div className="grid mt-6">
                         <div className="my-20 grid col-span-6 grid-cols-3 gap-5">
-                            <OrderItemCard title="sushi" image={food2}/>
-                            <OrderItemCard title="ramen" image={food10}/>
-                            <OrderItemCard title="sushi" image={ramen1}/>
-                            <OrderItemCard title="ramen" image={ramen2}/>
-                            <OrderItemCard title="sushi" image={food2}/>
-                            <OrderItemCard title="ramen" image={food10}/>
-                            <OrderItemCard title="sushi" image={food2}/>
-                            <OrderItemCard title="ramen" image={food10}/>
-                            <OrderItemCard title="sushi" image={food2}/>
-                            <OrderItemCard title="ramen" image={food10}/>
-                            <OrderItemCard title="sushi" image={food2}/>
-                            <OrderItemCard title="ramen" image={food10}/>
-                            <OrderItemCard title="sushi" image={food2}/>
-                            <OrderItemCard title="ramen" image={food10}/>
-                            <OrderItemCard title="sushi" image={food2}/>
-                            <OrderItemCard title="ramen" image={food10}/>
+                            {foods.length > 0 ? (foods.map((food: ICardItems) => (
+                                <OrderItemCard showCheck={!!orders.find(s => s.id === food.id)} addHandler={() => addToOrderList(food)} title={food.name} image={food.image}/>
+                            ))): (
+                                    <div>No item to show</div>
+                            )}
                         </div>
                         <div className="col-span-1">
                         </div>
                     </div>
                 </div>
                 <div className="col-span-1">
-                    <SideBarOrder/>
+                    <SideBarOrder orders={orders} />
                 </div>
             </div>
         </>
