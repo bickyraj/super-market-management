@@ -21,7 +21,7 @@ const SideBarOrder: React.FC<IProps> = (props: IProps) => {
                     <table className="min-w-full text-left border-spacing-4">
                         <thead>
                             <tr className="border-b border-gray-200 text-gray-900">
-                            <th className="w-1/12 text-sm/6 font-medium pb-2 mb-2">
+                            <th className="w-[5%] text-sm/6 font-medium pb-2 mb-2">
                                 Sn
                             </th>
                             <th className="w-1/4 text-sm/6 font-medium pb-2 mb-2">
