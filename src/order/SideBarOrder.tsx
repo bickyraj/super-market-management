@@ -70,7 +70,7 @@ const SideBarOrder: React.FC<IProps> = (props: IProps) => {
                                 <td></td>
                                 <td colSpan={3} className="pt-2 pb-2 text-sm/6 font-semibold col-span-4">Total Amount</td>
                                 <td className="pt-2 pb-2 text-sm/6 col-span-1 font-semibold text-right">
-                                    €{props.orders.reduce((acc, item) => (acc + item.quantity * item.price), 0)}
+                                    € {props.orders.reduce((acc, item) => (acc + item.quantity * item.price), 0)}
                                 </td>
                             </tr>
                         </tbody>

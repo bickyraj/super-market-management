@@ -34,6 +34,20 @@ const foods: ICardItems[] = [
 ]
 const OrderFood:React.FC = () => {
     const [orders, setOrders] = useState<IOrder[]>([]);
+    const removeFromOrderList = (food: ICardItems) => {
+        setOrders((prevOrders: IOrder[]) => {
+            const existingOrder = prevOrders.find((order) => order.id === food.id);
+            if (existingOrder && existingOrder.quantity > 1) {
+                return prevOrders.map((order) =>
+                    order.id === food.id
+                        ? { ...order, quantity: order.quantity - 1 }
+                        : order
+                );
+            } else {
+                return prevOrders.filter(order => order.id !== food.id);
+            }
+        });
+    }
     const addToOrderList = (food: ICardItems) => {
         setOrders((prevOrders: IOrder[]) => {
             const existingOrder = prevOrders.find((order) => order.id === food.id);
@@ -82,7 +96,19 @@ const OrderFood:React.FC = () => {
                     <div className="grid mt-6">
                         <div className="my-20 grid col-span-6 grid-cols-3 gap-5">
                             {foods.length > 0 ? (foods.map((food: ICardItems) => (
-                                <OrderItemCard showCheck={!!orders.find(s => s.id === food.id)} addHandler={() => addToOrderList(food)} title={food.name} image={food.image}/>
+                                <div className="relative">
+                                    {orders.find((order) => order.id === food.id) && (
+                                        <span className="absolute right-4 text-md top-0.5 text-green-500 font-semibold z-20">
+                                            <sub>x</sub> {orders.find((order) => order.id === food.id)?.quantity || 0}
+                                        </span>
+                                    )}
+                                    <OrderItemCard
+                                        addHandler={() => addToOrderList(food)}
+                                        removeHandler={() => removeFromOrderList(food)}
+                                        title={food.name}
+                                        image={food.image}
+                                    />
+                                </div>
                             ))): (
                                     <div>No item to show</div>
                             )}
