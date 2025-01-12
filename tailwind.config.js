@@ -6,7 +6,11 @@ export default {
     './public/index.html'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'gray-light': '#f6f6f6'
+      }
+    },
   },
   plugins: [],
 }

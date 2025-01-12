@@ -10,7 +10,7 @@ const CategoryMenu: React.FC<IProps> = (props: IProps) => {
 
     return (
         <div
-            className={`group px-2 bg-white gap-1.5 drop-shadow-xl rounded-lg cursor-pointer hover:bg-amber-400 flex items-center ${props.active ? 'bg-amber-400': ''}`}>
+            className={`group px-2 py-1.5 bg-white gap-1.5 drop-shadow-xl rounded-lg cursor-pointer hover:bg-amber-400 flex items-center ${props.active ? 'bg-amber-400': ''}`}>
             <div>
                 <img src={props.icon} alt="grocery" height={20} width={20}/>
             </div>

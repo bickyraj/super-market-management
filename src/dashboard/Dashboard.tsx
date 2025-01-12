@@ -10,7 +10,7 @@ import MenuCard from "../common/MenuCard.tsx";
 const Dashboard = () => {
     return (
         <>
-            <div className="my-20 grid grid-cols-3 gap-10">
+            <div className="pt-10 grid grid-cols-3 gap-10">
                 <MenuCard link="/order/food" icon={order} title=""/>
                 <MenuCard icon={fruits} title="Fruits"/>
                 <MenuCard icon={grocery} title="Grocery"/>
