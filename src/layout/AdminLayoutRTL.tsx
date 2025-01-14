@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../common/Header.tsx";
 import {Outlet} from "react-router-dom";
-import Aside from "../common/Aside.tsx";
+import Aside from "../common/sidebar/Aside.tsx";
 
 const AdminLayoutRTL: React.FC = () => {
 

@@ -10,6 +10,7 @@ import OrderFood from "./order/OrderFood.tsx";
 import AddSupplier from "./supplier/AddSupplier.tsx";
 import AddWarehouse from "./warehouse/AddWarehouse.tsx";
 import AdminLayoutRTL from "./layout/AdminLayoutRTL.tsx";
+import AllProduct from "./product/AllProduct.tsx";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/menu/details" element={<Detail />} />
                   <Route path="/product/add" element={<AddNewProduct />} />
+                  <Route path="/product/all" element={<AllProduct />} />
                   <Route path="/product-category/add" element={<AddNewCategory />} />
                   <Route path="/unit/add" element={<AddNewUnit />} />
                   <Route path="/order/food" element={<OrderFood />} />
