@@ -1,4 +1,3 @@
-import logo from "../assets/shopping.png";
 import {
     ArrowPathIcon,
     Bars3Icon,
@@ -20,7 +19,7 @@ import {
 } from "@headlessui/react";
 import {ChevronDownIcon, HomeIcon, PhoneIcon, PlayCircleIcon} from "@heroicons/react/20/solid";
 import {useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const products = [
     { name: 'Add new product', description: 'Get a better understanding of your traffic', href: '/product/add', icon: ChartPieIcon },
@@ -36,26 +35,9 @@ const callsToAction = [
 
 const Header: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const navigate = useNavigate();
-    const logoHandleClick = () => {
-        navigate(`/dashboard`);
-    }
     return (
         <header className="bg-white fixed w-full z-20">
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
-                <div className="flex lg:flex-1">
-                    <a href="#" className="-m-1.5 p-1.5">
-                        <span className="sr-only">Super Manager</span>
-                        <div onClick={() => logoHandleClick()} className="flex gap-2 align-middle">
-                            <img
-                                alt=""
-                                src={logo}
-                                className="h-8 w-auto"
-                            />
-                            <div className="font-bold text-gray-800 text-2xl">Super Manager</div>
-                        </div>
-                    </a>
-                </div>
                 <div className="flex lg:hidden">
                     <button
                         type="button"
@@ -119,12 +101,12 @@ const Header: React.FC = () => {
                         </PopoverPanel>
                     </Popover>
 
-                    <a href="#" className="text-sm/6 font-semibold text-gray-900">
-                        Orders
-                    </a>
-                    <a href="#" className="text-sm/6 font-semibold text-gray-900">
-                        Inventory
-                    </a>
+                    <Link to="/supplier/add" className="text-sm/6 font-semibold text-gray-900">
+                        Supplier
+                    </Link>
+                    <Link to="/warehouse/add" className="text-sm/6 font-semibold text-gray-900">
+                        Warehouse
+                    </Link>
                     <a href="#" className="text-sm/6 font-semibold text-gray-900">
                         Menu
                     </a>

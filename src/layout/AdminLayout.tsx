@@ -8,7 +8,7 @@ const AdminLayout: React.FC = () => {
             <Header/>
             <main>
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 relative top-20">
-                    <Outlet />
+                    <Outlet/>
                 </div>
             </main>
         </>
