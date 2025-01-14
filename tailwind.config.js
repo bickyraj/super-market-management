@@ -31,10 +31,7 @@ export default {
           800: '#3730a3',
           900: '#312e81',
         },
-      },
-      fontFamily: {
-        // sans: ['Roboto', 'sans-serif'],
-      },
+      }
     },
   },
   plugins: [],

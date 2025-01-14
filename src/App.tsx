@@ -12,12 +12,15 @@ import AddWarehouse from "./warehouse/AddWarehouse.tsx";
 import AdminLayoutRTL from "./layout/AdminLayoutRTL.tsx";
 import AllProduct from "./product/AllProduct.tsx";
 import NewBill from "./billing/NewBill.tsx";
+import AdminLayout from "./layout/AdminLayout.tsx";
 
 function App() {
   return (
       <Router>
           <Routes>
               {/*<Route path="/" element={<Login />} />*/}
+              <Route path="/" element={<AdminLayout />}>
+              </Route>
               <Route path="/" element={<AdminLayoutRTL />}>
                   <Route path="/billing" element={<NewBill />} />
                   <Route path="/dashboard" element={<Dashboard />} />

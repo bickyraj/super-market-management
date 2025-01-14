@@ -7,7 +7,7 @@ interface IProps {
 const PageHeader: React.FC<IProps> = (props: IProps) => {
     return (
         <>
-            <div className="lg:flex lg:items-center lg:justify-between mt-2">
+            <div className="lg:flex lg:items-center lg:justify-between mt-2 mb-3">
                 <div className="min-w-0 flex-1">
                     <h2 className="lg:text-xl flex font-semibold sm:truncate sm:text-xl sm:tracking-tight">
                         {props.title}
