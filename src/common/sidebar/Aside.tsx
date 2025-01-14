@@ -7,15 +7,17 @@ import {
     Squares2X2Icon
 } from "@heroicons/react/24/outline";
 import React, {useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import SubMenu, {SubMenuType} from "./SubMenu.tsx";
 import SidebarMenu from "./SidebarMenu.tsx";
+import BillingIcon from "../../icon/BillingIcon.tsx";
 
 type SubMenuState = {
     [key: string]: boolean;
 };
 const Aside: React.FC = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const logoHandleClick = () => {
         navigate(`/dashboard`);
     }
@@ -51,7 +53,10 @@ const Aside: React.FC = () => {
         warehouseManagement: false,
         supplierManagement: false,
     });
+    const isSubMenuActive = (paths: string[]) => {
+        return paths.some((path) => location.pathname.startsWith(path));
 
+    };
     const toggleSubMenu = (menu: keyof SubMenuState) => {
         setOpenSubMenus((prev: SubMenuState) => ({
             ...prev,
@@ -85,7 +90,9 @@ const Aside: React.FC = () => {
                     <li className="mb-1 px-4">
                         <button
                             onClick={() => toggleSubMenu('productManagement')}
-                            className={`flex w-full gap-2 items-center hover:bg-gray-100 ${openSubMenus.productManagement ? 'bg-gray-100' : ''} px-3 py-3 rounded-lg`}
+                            className={`${
+                                isSubMenuActive(['/product/all', '/product/add', '/unit/add']) ? 'bg-app-50 hover:bg-app-100 font-medium text-app-700' : 'hover:bg-gray-100'
+                            } flex w-full gap-2 items-center hover:bg-gray-100 ${openSubMenus.productManagement ? 'bg-gray-100' : ''} px-3 py-3 rounded-lg`}
                         >
                             <ShoppingBagIcon className="h-6 w-6"/>
                             <span>Product Management</span>
@@ -107,7 +114,9 @@ const Aside: React.FC = () => {
                     <li className="mb-1 px-4">
                         <button
                             onClick={() => toggleSubMenu('warehouseManagement')}
-                            className={`flex w-full gap-2 items-center hover:bg-gray-100 ${openSubMenus.warehouseManagement ? 'bg-gray-100' : ''} px-3 py-3 rounded-lg`}
+                            className={`${
+                                isSubMenuActive(['/warehouse/all', '/warehouse/add']) ? 'bg-app-50 hover:bg-app-100 font-medium text-app-700' : 'hover:bg-gray-100'
+                            } flex w-full gap-2 items-center ${openSubMenus.warehouseManagement ? 'bg-gray-100' : ''} px-3 py-3 rounded-lg`}
                         >
                             <BuildingOffice2Icon className="h-6 w-6"/>
                             <span>Warehouse</span>
@@ -125,6 +134,11 @@ const Aside: React.FC = () => {
                         name="Supplier"
                         route="/supplier/add"
                         icon={<ArrowPathRoundedSquareIcon className="h-6 w-6"/>}
+                    />
+                    <SidebarMenu
+                        name="Billing"
+                        route="/billing"
+                        icon={<BillingIcon className="h-6 w-6"/>}
                     />
                 </ul>
             </nav>

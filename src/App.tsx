@@ -11,6 +11,7 @@ import AddSupplier from "./supplier/AddSupplier.tsx";
 import AddWarehouse from "./warehouse/AddWarehouse.tsx";
 import AdminLayoutRTL from "./layout/AdminLayoutRTL.tsx";
 import AllProduct from "./product/AllProduct.tsx";
+import NewBill from "./billing/NewBill.tsx";
 
 function App() {
   return (
@@ -18,14 +19,15 @@ function App() {
           <Routes>
               {/*<Route path="/" element={<Login />} />*/}
               <Route path="/" element={<AdminLayoutRTL />}>
+                  <Route path="/billing" element={<NewBill />} />
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/menu/details" element={<Detail />} />
+                  <Route path="/order/food" element={<OrderFood />} />
                   <Route path="/product/add" element={<AddNewProduct />} />
                   <Route path="/product/all" element={<AllProduct />} />
                   <Route path="/product-category/add" element={<AddNewCategory />} />
-                  <Route path="/unit/add" element={<AddNewUnit />} />
-                  <Route path="/order/food" element={<OrderFood />} />
                   <Route path="/supplier/add" element={<AddSupplier />} />
+                  <Route path="/unit/add" element={<AddNewUnit />} />
                   <Route path="/warehouse/add" element={<AddWarehouse />} />
               </Route>
           </Routes>
