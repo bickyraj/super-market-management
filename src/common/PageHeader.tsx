@@ -1,12 +1,15 @@
 import React from "react";
+import {observer} from "mobx-react-lite";
+import sidebarStore from "../store/SidebarStore.ts";
 interface IProps {
     title: string;
 }
 
 const PageHeader: React.FC<IProps> = (props: IProps) => {
+    const {isCollapsed} = sidebarStore;
     return (
         <>
-            <div className="bg-white mx-auto ml-72 lg:flex px-7 py-3 lg:items-center lg:justify-between mb-3 mt-[70px]">
+            <div className={`bg-white mx-auto ${isCollapsed ? 'lg:ml-28 md:ml-44': 'lg:ml-64 md:ml-56' } lg:flex px-7 py-3 lg:items-center lg:justify-between mb-3 mt-[70px]`}>
                 <div className="min-w-0 flex-1">
                     <h2 className="lg:text-xl flex font-semibold sm:truncate sm:text-xl sm:tracking-tight">
                         {props.title}
@@ -63,4 +66,4 @@ const PageHeader: React.FC<IProps> = (props: IProps) => {
         </>
     );
 }
-export default PageHeader;
+export default observer(PageHeader);

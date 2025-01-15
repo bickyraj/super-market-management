@@ -3,9 +3,11 @@ import Header from "../common/Header.tsx";
 import {Outlet} from "react-router-dom";
 import Aside from "../common/sidebar/Aside.tsx";
 import PageHeader from "../common/PageHeader.tsx";
+import sidebarStore from "../store/SidebarStore.ts";
+import {observer} from "mobx-react-lite";
 
 const AdminLayoutRTL: React.FC = () => {
-
+    const { isCollapsed } = sidebarStore;
     return (
         <>
             <div className="flex min-h-screen">
@@ -14,7 +16,7 @@ const AdminLayoutRTL: React.FC = () => {
                     <Header/>
                     <main>
                         <PageHeader title="Dashboard"/>
-                        <div className="mx-auto ml-72 max-w-7xl px-4 sm:px-6 relative top-0">
+                        <div className={`mx-auto ${isCollapsed ? 'lg:ml-42 md:ml-28': 'lg:ml-64 md:ml-72' } px-4 sm:px-6 relative top-0`}>
                             <Outlet/>
                         </div>
                     </main>
@@ -24,4 +26,4 @@ const AdminLayoutRTL: React.FC = () => {
     );
 }
 
-export default AdminLayoutRTL;
+export default observer(AdminLayoutRTL);

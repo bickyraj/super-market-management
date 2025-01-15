@@ -7,18 +7,19 @@ export interface SubMenuType {
     name: string;
 }
 interface IProps {
-    subMenus: SubMenuType[]
+    subMenus: SubMenuType[],
+    short?: boolean;
 }
 const SubMenu: React.FC<IProps> = (props: IProps) => {
     const {subMenus} = props;
     return (
-        <ul className="mt-2 ml-4">
+        <ul className={`mt-2 ml-4 ${props.short && 'absolute w-52 top-0 left-[85px]'} z-20 bg-white rounded-md`}>
             {subMenus && subMenus.map((menu: SubMenuType) => (
                 <li className="mb-1">
                     <NavLink
                         to={menu.route}
                         className={({isActive}) =>
-                            `${isActive ? 'bg-gray-100 text-gray-950 font-medium' : ''} flex gap-2 items-center hover:bg-gray-100 px-3 py-3 rounded-lg`
+                            `${isActive ? 'bg-gray-100 text-gray-900 font-medium' : ''} flex gap-2 items-center hover:bg-gray-100 px-3 py-3 rounded-lg`
                         }
                     >
                         <ArrowTurnDownRightIcon className="h-4 w-4"/>

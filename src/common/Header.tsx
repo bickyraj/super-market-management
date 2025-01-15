@@ -20,6 +20,8 @@ import {
 import {ChevronDownIcon, HomeIcon, PhoneIcon, PlayCircleIcon} from "@heroicons/react/20/solid";
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
+import { observer } from "mobx-react-lite";
+import sidebarStore from "../store/SidebarStore.ts";
 
 const products = [
     { name: 'Add new product', description: 'Get a better understanding of your traffic', href: '/product/add', icon: ChartPieIcon },
@@ -34,10 +36,11 @@ const callsToAction = [
 ]
 
 const Header: React.FC = () => {
+    const { isCollapsed } = sidebarStore;
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     return (
-        <header className="bg-white fixed w-full z-20">
-            <nav aria-label="Global" className="mx-auto flex ml-72 max-w-7xl items-center justify-between p-6 lg:px-8">
+        <header className="bg-white fixed w-full z-20 border-b border-gray-100">
+            <nav aria-label="Global" className={`mx-auto flex ${isCollapsed ? 'ml-42 ml-28': 'ml-64' } items-center justify-between p-6 lg:px-8`}>
                 <div className="flex lg:hidden">
                     <button
                         type="button"
@@ -196,4 +199,4 @@ const Header: React.FC = () => {
         </header>
     )
 }
-export default Header;
+export default observer(Header);
