@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {pageHeaderStore} from "../store/PageHeaderStore.ts";
 import {observer} from "mobx-react-lite";
+import ProductTable from "./ProductTable.tsx";
 
 const AllProduct: React.FC = () => {
     useEffect(() => {
@@ -8,7 +9,7 @@ const AllProduct: React.FC = () => {
     }, [])
     return (
         <>
-            <h1>All Products</h1>
+            <ProductTable/>
         </>
     );
 }

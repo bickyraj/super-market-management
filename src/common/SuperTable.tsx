@@ -1,15 +1,6 @@
 import React from "react";
 
-interface TableItem {
-
-}
-
-interface IProps {
-    data?: TableItem[];
-    className?: string;
-}
-
-const SuperTable: React.FC<IProps> = (props: IProps) => {
+const SuperTable: React.FC = () => {
     return (
         <div className="bg-white p-6 gray-200">
             <table className="lg:w-full text-left border-spacing-4">
