@@ -16,7 +16,8 @@ const AdminLayoutRTL: React.FC = () => {
                     <Header/>
                     <main>
                         <PageHeader title="Dashboard"/>
-                        <div className={`transition-all duration-300 ease-in-out mx-auto ${isCollapsed ? 'lg:ml-42 md:ml-28': 'lg:ml-64 md:ml-72' } px-4 sm:px-6 relative top-0`}>
+                        <div
+                            className={`transition-all duration-300 ease-in-out mx-auto ${isCollapsed ? 'lg:ml-42 md:ml-28' : 'lg:ml-64 md:ml-72'} px-4 sm:px-6 relative top-0`}>
                             <Outlet/>
                         </div>
                     </main>

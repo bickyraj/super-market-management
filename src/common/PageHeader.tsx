@@ -9,8 +9,8 @@ const PageHeader: React.FC<IProps> = (props: IProps) => {
     const {isCollapsed} = sidebarStore;
     return (
         <>
-            <div className={`transition-all duration-300 ease-in-out bg-white mx-auto ${isCollapsed ? 'lg:ml-28 md:ml-44': 'lg:ml-64 md:ml-56' } lg:flex px-7 py-3 lg:items-center lg:justify-between mb-3 mt-[70px]`}>
-                <div className="min-w-0 flex-1">
+            <div className={`transition-all duration-300 ease-in-out bg-white ${isCollapsed ? 'lg:ml-28 md:ml-44': 'lg:ml-64 md:ml-44' } lg:flex px-7 py-3 lg:items-center lg:justify-between mb-3 mt-[70px]`}>
+                <div className="flex-1">
                     <h2 className="lg:text-xl flex font-semibold sm:truncate sm:text-xl sm:tracking-tight">
                         {props.title}
                     </h2>

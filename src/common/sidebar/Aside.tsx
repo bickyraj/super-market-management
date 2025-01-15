@@ -79,7 +79,7 @@ const Aside: React.FC = () => {
                 className="absolute z-40 top-6 right-[-10px] text-white"
                 onClick={toggleSidebar}
             >
-                <ArrowsRightLeftIcon className="size-6 p-1 text-gray-600 rounded-full bg-white drop-shadow-md"/>
+                <ArrowsRightLeftIcon className="size-6 p-1 hover:bg-gray-100 text-gray-600 rounded-full bg-white drop-shadow-md"/>
             </button>
             <div className="p-6">
                 <div className={`flex lg:flex-1 ${isCollapsed && 'justify-center'}`}>
