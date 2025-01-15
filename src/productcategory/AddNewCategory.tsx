@@ -1,6 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {pageHeaderStore} from "../store/PageHeaderStore.ts";
+import {observer} from "mobx-react-lite";
 
 const AddNewCategory: React.FC = () => {
+    useEffect(() => {
+        pageHeaderStore.setTitle("Category");
+    }, [])
     return (
         <>
             <div className="bg-white mt-5 p-8">
@@ -66,4 +71,4 @@ const AddNewCategory: React.FC = () => {
         </>
     );
 }
-export default AddNewCategory;
+export default observer(AddNewCategory);

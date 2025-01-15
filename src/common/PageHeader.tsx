@@ -1,18 +1,17 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
 import sidebarStore from "../store/SidebarStore.ts";
-interface IProps {
-    title: string;
-}
+import {pageHeaderStore} from "../store/PageHeaderStore.ts";
 
-const PageHeader: React.FC<IProps> = (props: IProps) => {
+const PageHeader: React.FC = () => {
     const {isCollapsed} = sidebarStore;
+    const {pageTitle} = pageHeaderStore;
     return (
         <>
             <div className={`transition-all duration-300 ease-in-out bg-white ${isCollapsed ? 'lg:ml-28 md:ml-44': 'lg:ml-64 md:ml-44' } lg:flex px-7 py-3 lg:items-center lg:justify-between mb-3 mt-[70px]`}>
                 <div className="flex-1">
                     <h2 className="lg:text-xl flex font-semibold sm:truncate sm:text-xl sm:tracking-tight">
-                        {props.title}
+                        {pageTitle}
                     </h2>
                     {/*<div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">*/}
                     {/*    <div className="mt-2 flex items-center text-sm text-gray-500">*/}

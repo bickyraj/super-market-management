@@ -1,10 +1,15 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import SuperTable from "../common/SuperTable.tsx";
 import Modal from "../common/Modal.tsx";
 import PaymentType from "./PaymentType.tsx";
 import securePaymentImage from "../assets/secure-payment.png";
+import { observer } from "mobx-react-lite";
+import {pageHeaderStore} from "../store/PageHeaderStore.ts";
 
 const NewBill: React.FC = () => {
+    useEffect(() => {
+        pageHeaderStore.setTitle("New Bill");
+    }, [])
     const [openModel, setOpenModel] = useState(false);
     const handleOpenModal = () => {
         setOpenModel(true);
@@ -40,4 +45,4 @@ const NewBill: React.FC = () => {
         </>
     );
 }
-export default NewBill;
+export default observer(NewBill);

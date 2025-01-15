@@ -1,6 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {pageHeaderStore} from "../store/PageHeaderStore.ts";
+import {observer} from "mobx-react-lite";
 
 const AddNewProduct: React.FC = () => {
+    useEffect(() => {
+        pageHeaderStore.setTitle("New Product");
+    }, [])
     return (
         <>
             <div className="bg-white p-8 rounded-lg">
@@ -236,4 +241,4 @@ const AddNewProduct: React.FC = () => {
         </>
     );
 }
-export default AddNewProduct;
+export default observer(AddNewProduct);

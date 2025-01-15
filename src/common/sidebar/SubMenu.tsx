@@ -13,7 +13,7 @@ interface IProps {
 const SubMenu: React.FC<IProps> = (props: IProps) => {
     const {subMenus} = props;
     return (
-        <ul className={`mt-2 ml-4 ${props.short && 'absolute w-52 top-0 left-[85px] px-0 py-0'} z-20 bg-white rounded-md shadow-md`}>
+        <ul className={`mt-2 ml-4 ${props.short && 'absolute w-52 top-0 left-[85px] px-0 py-0 shadow-md'} z-20 bg-white rounded-md`}>
             {subMenus && subMenus.map((menu: SubMenuType, index: number) => (
                 <li key={index} className="mb-1">
                     <NavLink

@@ -74,7 +74,7 @@ const Aside: React.FC = () => {
 
     return (
         <aside
-            className={`transition-all duration-300 ease-in-out lg:w-${isCollapsed ? '[100px]' : '72'} w-${isCollapsed ? '[100px]' : '72'} md:w-${isCollapsed ? '[100px]' : '72'} fixed h-full z-30 bg-white border-r-[1px] border-b-gray-50`}>
+            className={`transition-all duration-300 ease-in-out lg:w-${isCollapsed ? '[100px]' : '72'} w-${isCollapsed ? '[100px]' : '72'} md:w-${isCollapsed ? '[100px]' : '72'} fixed h-full z-30 bg-white border-r-[0.5px] border-r-gray-200`}>
             <button
                 className="absolute z-40 top-6 right-[-10px] text-white"
                 onClick={toggleSidebar}

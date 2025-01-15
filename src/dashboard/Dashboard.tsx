@@ -6,8 +6,14 @@ import fruits from '../assets/fruits.png';
 import vegetable from '../assets/vegetable.png';
 import order from '../assets/order.png';
 import MenuCard from "../common/MenuCard.tsx";
+import {useEffect} from "react";
+import {pageHeaderStore} from "../store/PageHeaderStore.ts";
+import { observer } from 'mobx-react-lite';
 
 const Dashboard = () => {
+    useEffect(() => {
+        pageHeaderStore.setTitle("App");
+    }, [])
     return (
         <>
             <div className="pt-10 grid grid-cols-3 gap-10">
@@ -23,4 +29,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard;
+export default observer(Dashboard);

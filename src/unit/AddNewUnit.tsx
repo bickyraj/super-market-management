@@ -1,6 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {pageHeaderStore} from "../store/PageHeaderStore.ts";
+import {observer} from "mobx-react-lite";
 
 const AddNewUnit: React.FC = () => {
+    useEffect(() => {
+        pageHeaderStore.setTitle("Units");
+    }, [])
     return (
         <>
             <div className="bg-white mt-5 p-8">
@@ -51,4 +56,4 @@ const AddNewUnit: React.FC = () => {
         </>
     );
 }
-export default AddNewUnit;
+export default observer(AddNewUnit);

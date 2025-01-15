@@ -1,6 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {pageHeaderStore} from "../store/PageHeaderStore.ts";
+import {observer} from "mobx-react-lite";
 
 const AddSupplier: React.FC = () => {
+    useEffect(() => {
+        pageHeaderStore.setTitle("New Supplier");
+    }, [])
     return (
         <>
             <div className="bg-white mt-5 p-8">
@@ -151,4 +156,4 @@ const AddSupplier: React.FC = () => {
         </>
     )
 }
-export default AddSupplier;
+export default observer(AddSupplier);

@@ -1,6 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {pageHeaderStore} from "../store/PageHeaderStore.ts";
+import {observer} from "mobx-react-lite";
 
 const AddWarehouse: React.FC = () => {
+    useEffect(() => {
+        pageHeaderStore.setTitle("New Warehouse");
+    }, [])
     return (
         <>
             <div className="bg-white mt-5 p-8">
@@ -151,4 +156,4 @@ const AddWarehouse: React.FC = () => {
         </>
     )
 }
-export default AddWarehouse;
+export default observer(AddWarehouse);
