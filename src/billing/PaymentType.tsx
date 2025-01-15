@@ -5,7 +5,7 @@ import cashOnDelivery from "../assets/cash-on-delivery.png";
 const PaymentType: React.FC = () => {
     return (
         <>
-            <div className="grid grid-cols-2 gap-10">
+            <div className="grid grid-cols-2 gap-8">
                 <div className="col-span-1">
                     <MenuCard title="by card" icon={creditCardImage}/>
                 </div>

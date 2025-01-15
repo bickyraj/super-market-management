@@ -1,5 +1,4 @@
 import React from "react";
-
 interface IProps {
     title: string;
 }
@@ -7,7 +6,7 @@ interface IProps {
 const PageHeader: React.FC<IProps> = (props: IProps) => {
     return (
         <>
-            <div className="lg:flex lg:items-center lg:justify-between mt-2 mb-3">
+            <div className="bg-white mx-auto ml-72 lg:flex px-7 py-3 lg:items-center lg:justify-between mb-3 mt-[70px]">
                 <div className="min-w-0 flex-1">
                     <h2 className="lg:text-xl flex font-semibold sm:truncate sm:text-xl sm:tracking-tight">
                         {props.title}

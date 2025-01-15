@@ -1,11 +1,9 @@
 import React from "react";
-import PageHeader from "../common/PageHeader.tsx";
 
 const AddNewProduct: React.FC = () => {
     return (
         <>
-            <PageHeader title="New Product"/>
-            <div className="bg-white mt-5 p-8 rounded-lg">
+            <div className="bg-white p-8 rounded-lg">
                 <form>
                     <div className="space-y-12">
                         <div className="border-b border-gray-900/10 pb-12">

@@ -64,7 +64,7 @@ const Aside: React.FC = () => {
         }));
     };
     return (
-        <aside className="lg:w-72 md:w-72 bg-white border-r-[1px] border-b-gray-50">
+        <aside className="lg:w-72 fixed h-full z-30 md:w-72 bg-white border-r-[1px] border-b-gray-50">
             <div className="p-6">
                 <div className="flex lg:flex-1">
                     <a href="#" className="-m-1.5 p-1.5">

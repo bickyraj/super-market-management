@@ -1,19 +1,22 @@
-import React, {ReactNode, useEffect, useState} from "react";
+import React, {ReactNode, useEffect} from "react";
 import {Dialog, DialogBackdrop, DialogPanel} from "@headlessui/react";
 
 interface IProps {
     children: ReactNode;
     open: boolean;
     titleIcon?: ReactNode;
+    onClose: () => void;
 }
-const Model: React.FC<IProps> = (props: IProps) => {
-    const [open, setOpen] = useState(props.open);
+const Modal: React.FC<IProps> = (props: IProps) => {
+    const { open, onClose, children, titleIcon } = props;
     useEffect(() => {
-        setOpen(props.open);
-    }, [props.open]);
+    }, [open]);
+    const handleClose = () => {
+        onClose();
+    };
     return (
         <>
-            <Dialog open={open} onClose={setOpen} className="relative z-30">
+            <Dialog open={open} onClose={handleClose} className="relative z-30">
                 <DialogBackdrop
                     transition
                     className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
@@ -27,10 +30,10 @@ const Model: React.FC<IProps> = (props: IProps) => {
                         >
                             <div className="bg-white border-b border-b-gray-100 px-4 pb-4 pt-5">
                                 <div className="flex gap-2 text-md justify-items-center text-base font-semibold text-gray-900 pb-3 mb-3 border-b border-gray-200">
-                                    {props.titleIcon}
+                                    {titleIcon}
                                     <span>Select Payment</span>
                                 </div>
-                                {props.children}
+                                {children}
                             </div>
                             {/*<div className="px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 ">*/}
                             {/*    <button*/}
@@ -56,4 +59,4 @@ const Model: React.FC<IProps> = (props: IProps) => {
         </>
     );
 }
-export default Model;
+export default Modal;

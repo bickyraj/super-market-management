@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../common/Header.tsx";
 import {Outlet} from "react-router-dom";
 import Aside from "../common/sidebar/Aside.tsx";
+import PageHeader from "../common/PageHeader.tsx";
 
 const AdminLayoutRTL: React.FC = () => {
 
@@ -12,7 +13,8 @@ const AdminLayoutRTL: React.FC = () => {
                 <div className="flex-1">
                     <Header/>
                     <main>
-                        <div className="mx-auto max-w-7xl px-4 sm:px-6 relative top-20">
+                        <PageHeader title="Dashboard"/>
+                        <div className="mx-auto ml-72 max-w-7xl px-4 sm:px-6 relative top-0">
                             <Outlet/>
                         </div>
                     </main>

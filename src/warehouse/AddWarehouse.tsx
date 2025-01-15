@@ -1,10 +1,8 @@
-import PageHeader from "../common/PageHeader.tsx";
 import React from "react";
 
 const AddWarehouse: React.FC = () => {
     return (
         <>
-            <PageHeader title="New Warehouse"/>
             <div className="bg-white mt-5 p-8">
                 <form>
                     <div className="space-y-12">

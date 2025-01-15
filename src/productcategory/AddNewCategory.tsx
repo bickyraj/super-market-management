@@ -1,10 +1,8 @@
 import React from "react";
-import PageHeader from "../common/PageHeader.tsx";
 
 const AddNewCategory: React.FC = () => {
     return (
         <>
-            <PageHeader title="New Category"/>
             <div className="bg-white mt-5 p-8">
                 <form>
                     <div className="space-y-12">

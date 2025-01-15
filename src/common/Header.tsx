@@ -18,7 +18,7 @@ import {
     PopoverPanel
 } from "@headlessui/react";
 import {ChevronDownIcon, HomeIcon, PhoneIcon, PlayCircleIcon} from "@heroicons/react/20/solid";
-import {useState} from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 
 const products = [
@@ -37,7 +37,7 @@ const Header: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     return (
         <header className="bg-white fixed w-full z-20">
-            <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+            <nav aria-label="Global" className="mx-auto flex ml-72 max-w-7xl items-center justify-between p-6 lg:px-8">
                 <div className="flex lg:hidden">
                     <button
                         type="button"

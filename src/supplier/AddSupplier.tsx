@@ -1,10 +1,8 @@
-import PageHeader from "../common/PageHeader.tsx";
 import React from "react";
 
 const AddSupplier: React.FC = () => {
     return (
         <>
-            <PageHeader title="New Supplier"/>
             <div className="bg-white mt-5 p-8">
                 <form>
                     <div className="space-y-12">
