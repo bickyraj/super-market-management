@@ -40,7 +40,7 @@ const Header: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     return (
         <header className="bg-white fixed w-full z-20 border-b border-gray-100">
-            <nav aria-label="Global" className={`mx-auto flex ${isCollapsed ? 'ml-42 ml-28': 'ml-64' } items-center justify-between p-6 lg:px-8`}>
+            <nav aria-label="Global" className={`transition-all duration-300 ease-in-out mx-auto flex ${isCollapsed ? 'ml-42 ml-28': 'ml-64' } items-center justify-between p-6 lg:px-8`}>
                 <div className="flex lg:hidden">
                     <button
                         type="button"

@@ -14,8 +14,8 @@ const SubMenu: React.FC<IProps> = (props: IProps) => {
     const {subMenus} = props;
     return (
         <ul className={`mt-2 ml-4 ${props.short && 'absolute w-52 top-0 left-[85px]'} z-20 bg-white rounded-md`}>
-            {subMenus && subMenus.map((menu: SubMenuType) => (
-                <li className="mb-1">
+            {subMenus && subMenus.map((menu: SubMenuType, index: number) => (
+                <li key={index} className="mb-1">
                     <NavLink
                         to={menu.route}
                         className={({isActive}) =>
