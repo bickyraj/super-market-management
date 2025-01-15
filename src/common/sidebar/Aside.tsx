@@ -65,6 +65,14 @@ const Aside: React.FC = () => {
         return paths.some((path) => location.pathname.startsWith(path));
 
     };
+    const handleToggleSidebar = () => {
+        setOpenSubMenus(() => ({
+            productManagement: false,
+            warehouseManagement: false,
+            supplierManagement: false,
+        }));
+        toggleSidebar();
+    }
     const toggleSubMenu = (menu: keyof SubMenuState) => {
         setOpenSubMenus((prev: SubMenuState) => ({
             ...prev,
@@ -77,7 +85,7 @@ const Aside: React.FC = () => {
             className={`transition-all duration-300 ease-in-out lg:w-${isCollapsed ? '[100px]' : '72'} w-${isCollapsed ? '[100px]' : '72'} md:w-${isCollapsed ? '[100px]' : '72'} fixed h-full z-30 bg-white border-r-[0.5px] border-r-gray-200`}>
             <button
                 className="absolute z-40 top-6 right-[-10px] text-white"
-                onClick={toggleSidebar}
+                onClick={handleToggleSidebar}
             >
                 <ArrowsRightLeftIcon className="size-6 p-1 hover:bg-gray-100 text-gray-600 rounded-full bg-white drop-shadow-md"/>
             </button>
